@@ -7,6 +7,8 @@
 package app;
 
 import java.util.Scanner;
+import domain.*;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +18,7 @@ public class Main {
         System.out.println("What is your Name?");
         String name = scanner.nextLine();
         System.out.println("Hello, " + name + "! Welcome to our store.");
-    }
+    
     scanner.close();
+    }
 }
