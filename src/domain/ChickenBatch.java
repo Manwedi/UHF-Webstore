@@ -49,4 +49,13 @@ public class ChickenBatch {
     public boolean isAvailable() {
         return isAvailable;
     }       
+
+    public void setQuantityAvailable(int quantityAvailable) {
+        this.quantityAvailable = quantityAvailable;
+    }
+
+    public String toString() {
+        return "ChickenBatch{" +
+                "ID='" + ID + '\'' + ", quantity=" + quantity + ", quantityAvailable=" + quantityAvailable + ", price=" + price + ", weight=" + weight + ", isAvailable=" + isAvailable +'}';
+    }
 }
