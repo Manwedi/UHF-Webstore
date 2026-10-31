@@ -1,5 +1,7 @@
-#URBAN HATCH ONLINE STORE
+### URBAN HATCH ONLINE STORE
+
     Welcome to the official repository for the Urban Hatch Farms Online Store, a modern, fast, and secure e-commerce platform designed to bring premium, farm-fresh chicken straight to our customers' doors.
+    
 
 ## FEATURES
 
