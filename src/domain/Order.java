@@ -57,6 +57,19 @@ public class Order {
     public void setStatus(OrderStatus status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId='" + orderId + '\'' +
+                ", customerName='" + customerName + '\'' +
+                ", batchId='" + batchId + '\'' +
+                ", quantity=" + quantity +
+                ", totalPrice=" + totalPrice +
+                ", orderDate=" + orderDate +
+                ", status=" + status +
+                '}';
+    }
 }
 
 
