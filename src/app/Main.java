@@ -23,6 +23,10 @@ public class Main {
         ChickenBatch batch1 = new ChickenBatch ("BATCH001", 50, 10.0, 2.5);
         System.out.println(batch1);
 
+        System.out.println(name + " this is your order");
+        Order order1 = new Order("ORDER001", name, batch1.getID(), 5, batch1.getPrice() * 5);
+        System.out.println(order1);
+
         scanner.close();
     }
 }
