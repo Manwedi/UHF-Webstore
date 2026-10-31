@@ -60,7 +60,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
+        return " Order { " +
                 "orderId='" + orderId + '\'' +
                 ", customerName='" + customerName + '\'' +
                 ", batchId='" + batchId + '\'' +
