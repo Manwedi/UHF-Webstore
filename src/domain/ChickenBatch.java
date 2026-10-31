@@ -55,7 +55,9 @@ public class ChickenBatch {
     }
 
     public String toString() {
-        return "ChickenBatch{" +
-                "ID='" + ID + '\'' + ", quantity=" + quantity + ", quantityAvailable=" + quantityAvailable + ", price=" + price + ", weight=" + weight + ", isAvailable=" + isAvailable +'}';
+        return "Chicken Batch { " +
+                "ID='" + ID + '\'' + ", quantity=" + quantity + ", quantityAvailable=" + 
+                quantityAvailable + ", price=" + price + ", weight=" + weight + 
+                ", isAvailable=" + isAvailable +'}';
     }
 }
