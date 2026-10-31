@@ -20,7 +20,7 @@ public class Main {
         System.out.println("Hello, " + name + "! Welcome to our store.");
         System.out.println("We only have this left in store: ");
 
-        ChickenBatch batch1 = new ChickenBatch("BATCH001", 50, 10.0, 2.5);
+        ChickenBatch batch1 = new ChickenBatch ("BATCH001", 50, 10.0, 2.5);
         System.out.println(batch1);
 
         scanner.close();
