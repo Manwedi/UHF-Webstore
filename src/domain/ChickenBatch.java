@@ -1,3 +1,8 @@
+/**
+ * MANWEDI CLAUDE
+ * URBAN HATCH FARMS ONLINE STORE
+ */
+
 package domain;
 
 public class ChickenBatch {
@@ -20,4 +25,28 @@ public class ChickenBatch {
     public double getTotalPrice() {
         return price * quantity;
     }
+
+    public String getID() {
+        return ID;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getQuantityAvailable() {
+        return quantityAvailable;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }       
 }
