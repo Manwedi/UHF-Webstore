@@ -8,11 +8,13 @@ package app;
 
 import java.util.Scanner;
 import domain.*;
+import repository.*;
 
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        FarmRepository farmData = new FarmRepository();
 
         System.out.println(" WELCOME TO URBAN HATCH FARMS ONLINE STORE");
         System.out.println("What is your Name?");
@@ -20,11 +22,11 @@ public class Main {
         System.out.println("Hello, " + name + "! Welcome to our store.");
         System.out.println("We only have this left in store: ");
 
-        ChickenBatch batch1 = new ChickenBatch ("BATCH001", 50, 10.0, 2.5);
+        ChickenBatch batch1 = farmData.getBatchById("Batch-001");
         System.out.println(batch1);
 
         System.out.println(name + " this is your order");
-        Order order1 = new Order("ORDER001", name, batch1.getID(), 5, batch1.getPrice() * 5);
+        Order order1 = new Order(farmData.generateOrderId(), name, batch1.getID(), 5, batch1.getPrice() * 5);
         System.out.println(order1);
 
         scanner.close();
