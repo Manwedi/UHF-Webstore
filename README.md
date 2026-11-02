@@ -48,6 +48,6 @@ Instead of jumping straight in SQL databases I will build and in memory Reposito
 - **`ConcurrentHashMap:`** this is a thread safe map implementation for storinng chicken batches by ID(easier tracking).
 - **`Collections.synchronizedList():`** this just wraps the ArrayList to prevent competing conditions when the User appends the orders.
 
-- **`FarmRepositroy.java:`** This is the data management layer (or data store) for our application.
+- **`FarmRepository.java:`** This is the data management layer (or data store) for our application.
 
 ---
