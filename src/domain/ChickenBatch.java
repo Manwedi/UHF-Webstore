@@ -9,14 +9,16 @@ public class ChickenBatch {
     String ID;
     int quantity;
     int quantityAvailable;
+    String breed;
     double price;
     double weight;
     boolean isAvailable;
 
-    public ChickenBatch(String ID, int quantity, double price, double weight) {
+    public ChickenBatch(String ID, String breed, int quantity, int quantityAvailable, double price, double weight) {
         this.ID = ID;
+        this.breed = breed;
         this.quantity = quantity;
-        this.quantityAvailable = quantity;
+        this.quantityAvailable = quantityAvailable;
         this.price = price;
         this.weight = weight;
         this.isAvailable = true;
@@ -28,6 +30,10 @@ public class ChickenBatch {
 
     public String getID() {
         return ID;
+    }
+
+    public String getBreed() {
+        return breed;
     }
 
     public int getQuantity() {
