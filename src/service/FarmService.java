@@ -44,6 +44,8 @@ public class FarmService {
                 batch.getPrice()
         );
 
+        repository.updateBatch(batchId, updatedBatch);  //I use this to save back the updated batch to the repository after an order is placed
+
         String orderId = repository.generateOrderId();
         Order order = new Order(orderId, customerName, batchId, quantity, totalPrice); 
         repository.addOrder(order);
