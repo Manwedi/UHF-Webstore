@@ -69,8 +69,9 @@ In this section I will be using Java's in-built Http-Server (from the **`com.sun
 
 I imported the com.sun.net.http dependencies to help run the native server. At this point I am stuck on debugging as my batchHandler is throwing errors I will document how I fixed this.
 
-![alt text](image-1.png)
+<img width="1917" height="1078" alt="Screenshot 2026-11-03 203133" src="https://github.com/user-attachments/assets/af57b090-294e-4fef-9e41-58d51f4f63e2" />
 
-After thorough debugging a GUI mock up of the WebApp is working fine.
+I imported **`import com.sun.net.httpserver.HttpHandler;`** to fixed my batchHandler break which now inherits HttpHandler library. The **`handle`** method also inherits the HttpHandler library, this was efficient as I did not have to create a new HttpHandler class and I effectively imported the default Java library packages
 
-![alt text](image.png)
+<img width="1917" height="1078" alt="Screenshot 2026-11-03 202952" src="https://github.com/user-attachments/assets/dc931bfb-2b64-4e18-a53a-8681ba23628d" />
+
