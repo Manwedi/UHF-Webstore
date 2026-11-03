@@ -34,7 +34,6 @@ public class FarmService {
         }
 
         double totalPrice = quantity * batch.getPrice();
-        double totalWeight = quantity * batch.getWeight();
 
         ChickenBatch updatedBatch = new ChickenBatch(
                 batch.getID(),
