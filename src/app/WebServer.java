@@ -1,9 +1,9 @@
-package app;
+package app'
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.util.*;
+import java.util.concurrent.Executors;
+
 import domain.*;
 import repository.*;
 import service.*;
@@ -16,15 +16,18 @@ public class WebServer {
         FarmRepository repository = new FarmRepository();
         FarmService service = new FarmService(repository);
 
-        server.createContext("/", new HomeHandler()); // Endpoint for home page
-        server.createContext("/batches", new BatchHandler(service)); // Endpoint for batches
+        server.createContext("/", new HomeHandler()); // Endpoint for the interface
 
-        server.setExecutor(null); // creates a default executor
+        server.setExecutor("/api/batches", new BatchesHandler(service)); //API Endpoint so that I could get available batch data
+
+        // Start the server
+        server.setExecutor(null);
         server.start();
 
         System.out.println("Server started on port " + port);
+    }
 
-        static class HomeHandler implements HttpHandler {
+    static class HomeHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
             String html = """
@@ -44,7 +47,7 @@ public class WebServer {
                 </head>
                 <body>
                     <div class="container">
-                    <h1>🐔 Urban Hatch Farms Online Store</h1>
+                        <h1>🐔 Urban Hatch Farms Online Store</h1>
                         <p style="text-align: center;">Welcome! Browse our live farm stock below:</p>
                         <div id="stock-list">Loading inventory...</div>
                     </div>
@@ -54,7 +57,7 @@ public class WebServer {
                             .then(data => {
                                 const container = document.getElementById('stock-list');
                                 if (data.length === 0) {
-                                    container.innerHTML = '<p>No stock currently available.</p>';
+                                container.innerHTML = '<p>No stock currently available.</p>';
                                     return;
                                 }
                                 container.innerHTML = data.map(b => `
@@ -68,39 +71,4 @@ public class WebServer {
                 </body>
                 </html>
                 """;
-            exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
-                exchange.sendResponseHeaders(200, html.getBytes().length);
-                OutputStream os = exchange.getResponseBody();
-                os.write(html.getBytes());
-                os.close();
-            }
-
-        public static class BatchesHandler implements HttpHandler {
-            private final FarmService service;
-
-            public BatchesHandler(FarmService service) {
-                this.service = service;
-            }
-            @Override
-        public void handle(HttpExchange exchange) throws IOException {
-            List<ChickenBatch> batches = service.getAllBatches();
-            
-            // Build a simple manual JSON string representation
-            StringBuilder json = new StringBuilder("[");
-            for (int i = 0; i < batches.size(); i++) {
-                ChickenBatch b = batches.get(i);
-                json.append(String.format("{\"ID\":\"%s\",\"breed\":\"%s\",\"quantityAvailable\":%d,\"price\":%.2f,\"weight\":%.2f}",
-                    b.getID(), b.getBreed(), b.getQuantityAvailable(), b.getPrice(), b.getWeight()
-                ));
-                if (i < batches.size() - 1) json.append(",");
-            }
-            json.append("]");
-
-            exchange.getResponseHeaders().set("Content-Type", "application/json; charset=UTF-8");
-            byte[] responseBytes = json.toString().getBytes();
-            exchange.sendResponseHeaders(200, responseBytes.length);
-            OutputStream os = exchange.getResponseBody();
-            os.write(responseBytes);
-            os.close();
-        }
-    }
+}
