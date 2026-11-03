@@ -22,6 +22,11 @@ public class FarmRepository {
         return Optional.ofNullable(batches.get(batchId));
     }
 
+    // Updates the batch inventory in our map
+    public void updateBatch(String batchId, ChickenBatch updatedBatch) {
+        batches.put(batchId, updatedBatch);
+    }
+
     public void addOrder(Order order) {
         orders.add(order);
     }
