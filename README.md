@@ -58,4 +58,10 @@ Holds our business rules and logic (e.g., checking if there's enough stock left,
 - **`Validation & Safety:`** If a customer tries to buy 500 birds when only 150 are left, the service throws an IllegalArgumentException and stops the transaction.
 - **`Automatic Inventory Update:`** When an order goes through, it automatically subtracts the purchased birds from that specific batch so you never oversell.
 
-- **`FarmService.java:`** This file mainly is for the business logic and validations. 
+- **`FarmService.java:`** This file mainly is for the business logic and validations.
+
+### Phase 4: Server (Server side and GUI build)
+
+In this section I will be using Java's in-built Http-Server (from the **`com.sun.net.httpserver package`**) this is the best way since am not required to use heavy frameworks for instance Spring Boot.
+
+- **`WebServer.app:`** on the **`package app`** I will be building the native server for the web app and add the html code inside the java utilising the method override to parse the HTML GUI logic. This class will start a local server on port 7474, handle incoming HTTP requests, serve my inventory data as JSON/text, and process orders directly from a web browser. 
