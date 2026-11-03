@@ -64,4 +64,7 @@ Holds our business rules and logic (e.g., checking if there's enough stock left,
 
 In this section I will be using Java's in-built Http-Server (from the **`com.sun.net.httpserver package`**) this is the best way since am not required to use heavy frameworks for instance Spring Boot.
 
-- **`WebServer.app:`** on the **`package app`** I will be building the native server for the web app and add the html code inside the java utilising the method override to parse the HTML GUI logic. This class will start a local server on port 7474, handle incoming HTTP requests, serve my inventory data as JSON/text, and process orders directly from a web browser. 
+- **`WebServer.app:`** on the **`package app`** I will be building the native server for the web app and add the html code inside the java utilising the method override to parse the HTML GUI logic. This class will start a local server on port 7474, handle incoming HTTP requests, serve my inventory data as JSON/text, and process orders directly from a web browser.
+- <img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/02a16999-a4af-4890-ac43-c53f21b98cac" />
+
+I imported the com.sun.net.http dependencies to help run the native server. At this point I am stuck on debugging as my batchHandler is throwing errors I will document how I fixed this.
