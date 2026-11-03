@@ -49,5 +49,13 @@ Instead of jumping straight in SQL databases I will build and in memory Reposito
 - **`Collections.synchronizedList():`** this just wraps the ArrayList to prevent competing conditions when the User appends the orders.
 
 - **`FarmRepository.java:`** This is the data management layer (or data store) for our application.
-
 ---
+
+### Phase 3: Services (Logic and Validation)
+
+Holds our business rules and logic (e.g., checking if there's enough stock left, calculating total pricing based on weight, verifying if a batch is ready for market, and executing an order transaction).
+
+- **`Validation & Safety:`** If a customer tries to buy 500 birds when only 150 are left, the service throws an IllegalArgumentException and stops the transaction.
+- **`Automatic Inventory Update:`** When an order goes through, it automatically subtracts the purchased birds from that specific batch so you never oversell.
+
+- **`FarmService.java: `** 
