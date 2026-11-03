@@ -68,3 +68,9 @@ In this section I will be using Java's in-built Http-Server (from the **`com.sun
 - <img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/02a16999-a4af-4890-ac43-c53f21b98cac" />
 
 I imported the com.sun.net.http dependencies to help run the native server. At this point I am stuck on debugging as my batchHandler is throwing errors I will document how I fixed this.
+
+![alt text](image-1.png)
+
+After thorough debugging a GUI mock up of the WebApp is working fine.
+
+![alt text](image.png)
