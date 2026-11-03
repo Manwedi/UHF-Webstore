@@ -23,8 +23,7 @@ public class WebServer {
         FarmService service = new FarmService(repository);
 
         server.createContext("/", new HomeHandler()); // Endpoint for the interface
-
-        server.setExecutor("/api/batches", new BatchesHandler(service)); //API Endpoint so that I could get available batch data
+        server.createContext("/api/batches", new BatchesHandler(service)); //API Endpoint so that I could get available batch data
 
         // Start the server
         server.setExecutor(null);
