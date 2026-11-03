@@ -58,4 +58,4 @@ Holds our business rules and logic (e.g., checking if there's enough stock left,
 - **`Validation & Safety:`** If a customer tries to buy 500 birds when only 150 are left, the service throws an IllegalArgumentException and stops the transaction.
 - **`Automatic Inventory Update:`** When an order goes through, it automatically subtracts the purchased birds from that specific batch so you never oversell.
 
-- **`FarmService.java: `** 
+- **`FarmService.java:`** This file mainly is for the business logic and validations. 
