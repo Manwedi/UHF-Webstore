@@ -1,7 +1,6 @@
 package repository;
 
 import domain.*;
-
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -19,8 +18,8 @@ public class FarmRepository {
         return new ArrayList<>(batches.values());
     }
 
-    public ChickenBatch getBatchById(String batchId) {
-        return batches.get(batchId);
+    public Optional<ChickenBatch> getBatchById(String batchId) {
+        return Optional.ofNullable(batches.get(batchId));
     }
 
     public void addOrder(Order order) {
