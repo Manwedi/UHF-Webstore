@@ -1,6 +1,7 @@
 package app'
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
 
@@ -71,4 +72,41 @@ public class WebServer {
                 </body>
                 </html>
                 """;
+            exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
+            exchange.sendResponseHeaders(200, html.getBytes().length);
+            OutputStream os = exchange.getResponseBody();
+            os.write(html.getBytes());
+            os.close();
+        }
+    }
+    static class BatchesHandler implements HttpHandler {
+        private final FarmService service;
+
+        public BatchesHandler(FarmService service) {
+            this.service = service;
+        }
+
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            List<ChickenBatch> batches = service.getAllBatches();
+            
+            // Build a simple manual JSON string representation
+            StringBuilder json = new StringBuilder("[");
+            for (int i = 0; i < batches.size(); i++) {
+                ChickenBatch b = batches.get(i);
+                json.append(String.format("{\"ID\":\"%s\",\"breed\":\"%s\",\"quantityAvailable\":%d,\"price\":%.2f,\"weight\":%.2f}",
+                    b.getID(), b.getBreed(), b.getQuantityAvailable(), b.getPrice(), b.getWeight()
+                ));
+                if (i < batches.size() - 1) json.append(",");
+            }
+            json.append("]");
+
+            exchange.getResponseHeaders().set("Content-Type", "application/json; charset=UTF-8");
+            byte[] responseBytes = json.toString().getBytes();
+            exchange.sendResponseHeaders(200, responseBytes.length);
+            OutputStream os = exchange.getResponseBody();
+            os.write(responseBytes);
+            os.close();
+        }
+    }
 }
