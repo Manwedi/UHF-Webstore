@@ -67,8 +67,8 @@ public class WebServer {
                                 }
                                 container.innerHTML = data.map(b => `
                                     <div class="batch-card">
-                                        <h3>\${b.breed} (ID: \${b.ID})</h3>
-                                        <p>Available Birds: <b>\${b.quantityAvailable}</b> | Price per bird: <b>$\${b.price}</b> | Weight: \${b.weight}kg</p>
+                                        <h3>${b.breed} (ID: ${b.ID})</h3>
+                                        <p>Available Birds: <b>${b.quantityAvailable}</b> | Price per bird: <b>$${b.price}</b> | Weight: ${b.weight}kg</p>
                                     </div>
                                 `).join('');
                             });
