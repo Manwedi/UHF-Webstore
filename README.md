@@ -13,7 +13,7 @@ D:\SOFTWARE\Websites\Urban Hatch Farms\
     ├── repository\     <-- Data Management & Java Collections
     ├── service\        <-- Business Logic & Validation Rules
     ├── web\            <-- Java HTTP Handlers & Web Interface
-    └── Main.java       <-- Application Entry Point
+    └── app\            <-- Application Entry Point
 ```
 
 ---
